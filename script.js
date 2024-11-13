@@ -16,14 +16,19 @@ function subtract(a,b)
 
 function divide(a,b)
 {
-    if(b === 0)
-        return "undefined";
-    return a / b;
+    if(b == 0)
+    {
+        return "Are you serious?";
+    }
+    return Math.floor((a / b) * 100) / 100;
 }
 
 
 function operate()
 {
+    if(operator == "")
+        return;
+
     let value = 0;
     console.log(operator);
     switch(operator)
@@ -145,6 +150,7 @@ btn_container.addEventListener("click", function (event)
         {
             if(number1 == 0)
                 number1 = screen_value;
+            console.log(text);
             operator = text;
         }
     } 

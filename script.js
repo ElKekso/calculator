@@ -37,7 +37,7 @@ function operate(num1, operator, num2)
     }
 }
 
-const btn_container = document.querySelector("button_container");
+const btn_container = document.querySelector("#button_container");
 
 for(let i = 1; i <= 16; i++)
 {
@@ -67,7 +67,7 @@ for(let i = 1; i <= 16; i++)
     }
 
     button.setAttribute("id", `btn_${text}`);
-    button.textContent(text);
+    button.textContent = text;
 
     btn_container.appendChild(button);
 }

@@ -108,7 +108,14 @@ function concNumber(number, extra)
 {
     if(number === 0)
         return extra;
-    return Number(String(number).concat(extra));    
+    let numR = Number(String(number).concat(extra));
+    
+    console.log("ok");
+    
+    if(numR > 99999999)
+        sound.play();
+
+    return numR;
 }
 
 function changeNumber(input)
@@ -131,6 +138,8 @@ function show(input)
     screen_value = input;
     screen.textContent = screen_value;
 }
+
+let sound = new Audio("rescources/Hör Auf sound.mp4")
 
 btn_container.addEventListener("click", function (event) 
 {

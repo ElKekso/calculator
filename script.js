@@ -24,14 +24,20 @@ function divide(a,b)
 
 function operate()
 {
+    let value = 0;
+    console.log(operator);
     switch(operator)
     {
-        case "+": return add(number1, number2);
-        case "-": return subtract(number1, number2);
-        case "*": return multiply(number1, number2);
-        case "/": return divide(number1, number2);
-        default: return "Operator invalid";
+        case "+": value = add(number1, number2); break;
+        case "-": value = subtract(number1, number2); break;
+        case "*": value = multiply(number1, number2); break;
+        case "/": value = divide(number1, number2); break;
+        default: value = "Operator invalid";
     }
+
+    show(value);
+
+    clear();
 }
 
 const btn_container = document.querySelector("#button_container");
@@ -73,13 +79,23 @@ for(let i = 1; i <= 16; i++)
 let number1 = 0;
 let number2 = 0;
 let operator = "";
+let screen_value = 0;
 
+const screen = document.querySelector("#screen_container");
+
+screen.textContent = 0;
 
 function clear()
 {
     number1 = 0;
     number2 = 0;
     operator = "";
+}
+
+function clearAll()
+{
+    clear();
+    screen.textContent = 0;
 }
 
 function concNumber(number, extra)
@@ -92,19 +108,33 @@ function concNumber(number, extra)
 function changeNumber(input)
 {
     if(operator == "")
+    {
         number1 = concNumber(number1, input);
-    else
+        show(number1);
+    }
+    else 
+    {
         number2 = concNumber(number2, input);
+        show(number2);
+    }
+        
 }
 
-btn_container.addEventListener("click", function (target) 
+function show(input)
 {
-    let text = target.textContent;
+    screen_value = input;
+    screen.textContent = screen_value;
+}
+
+btn_container.addEventListener("click", function (event) 
+{
+    let text = event.target.textContent;
+    
     if(isNaN(text))
     {
         if(text == "clr")
         {
-            clear();
+            clearAll();
         } 
         else if(text == "=")
         {
@@ -112,6 +142,7 @@ btn_container.addEventListener("click", function (target)
         }
         else 
         {
+            
             operator = text;
         }
     } 

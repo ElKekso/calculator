@@ -12,12 +12,17 @@ body{
     background-color: black;
     padding: 30px;
     margin: 0px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 30px;
 }
 
 #screen_container
 {
     height: 125px;
     width: 500px;
+    background-color: lightblue;
 }
 
 #button_container
@@ -45,6 +50,7 @@ body{
     padding: 0;
     margin: 0;
     background-color: antiquewhite;
+    border-color: lightblue;
 }
 
 .button:hover

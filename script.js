@@ -22,17 +22,14 @@ function divide(a,b)
 }
 
 
-function operate(num1, operator, num2)
+function operate()
 {
-    if(isNaN(a) || isNaN(c))
-        return "Input needs to be a Number";
-
     switch(operator)
     {
-        case "+": return add(num1, num2);
-        case "-": return subtract(num1, num2);
-        case "*": return multiply(num1, num2);
-        case "/": return divide(num1, num2);
+        case "+": return add(number1, number2);
+        case "-": return subtract(number1, number2);
+        case "*": return multiply(number1, number2);
+        case "/": return divide(number1, number2);
         default: return "Operator invalid";
     }
 }
@@ -78,4 +75,49 @@ let number2 = 0;
 let operator = "";
 
 
+function clear()
+{
+    number1 = 0;
+    number2 = 0;
+    operator = "";
+}
+
+function concNumber(number, extra)
+{
+    if(number === 0)
+        return extra;
+    return Number(String(number).concat(extra));    
+}
+
+function changeNumber(input)
+{
+    if(operator == "")
+        number1 = concNumber(number1, input);
+    else
+        number2 = concNumber(number2, input);
+}
+
+btn_container.addEventListener("click", function (target) 
+{
+    let text = target.textContent;
+    if(isNaN(text))
+    {
+        if(text == "clr")
+        {
+            clear();
+        } 
+        else if(text == "=")
+        {
+            operate();
+        }
+        else 
+        {
+            operator = text;
+        }
+    } 
+    else
+    {
+        changeNumber(Number(text));
+    }
+});
 

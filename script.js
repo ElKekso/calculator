@@ -96,6 +96,7 @@ function clearAll()
 {
     clear();
     screen.textContent = 0;
+    screen_value = 0;
 }
 
 function concNumber(number, extra)
@@ -142,7 +143,8 @@ btn_container.addEventListener("click", function (event)
         }
         else 
         {
-            
+            if(number1 == 0)
+                number1 = screen_value;
             operator = text;
         }
     } 

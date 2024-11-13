@@ -48,22 +48,22 @@ for(let i = 1; i <= 16; i++)
 
     switch(i)
     {
-        case 1: text = "="; break;
-        case 2: text = "^"; break;
-        case 3: text = "."; break;
-        case 4: text = "+"; break;
+        case 1: text = "+"; break;
+        case 2: text = "-"; break;
+        case 3: text = "*"; break;
+        case 4: text = "/"; break;
         case 5: text = "1"; break;
         case 6: text = "2"; break;
         case 7: text = "3"; break;
-        case 8: text = "-"; break;
+        case 8: text = "="; break;
         case 9: text = "4"; break;
         case 10: text = "5"; break;
         case 11: text = "6"; break;
-        case 12: text = "*"; break;
+        case 12: text = "clr"; break;
         case 13: text = "7"; break;
         case 14: text = "8"; break;
         case 15: text = "9"; break;
-        case 16: text = "/"; break;
+        case 16: text = "0"; break;
     }
 
     button.setAttribute("id", `btn_${text}`);
@@ -76,4 +76,6 @@ for(let i = 1; i <= 16; i++)
 let number1 = 0;
 let number2 = 0;
 let operator = "";
+
+
 
